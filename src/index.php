@@ -45,19 +45,19 @@
   $elephant->set_species("Słoń");
   $elephant->set_name("Kalafanty");
   $elephant->set_weight("5000");
-  $elephant->set_height("2");
+  $elephant->set_height("200");
 
   $cat = new Animal();
   $cat->set_species("Kot");
   $cat->set_name("Manfred");
   $cat->set_weight("10");
-  $cat->set_height("0.5");
+  $cat->set_height("50");
 
   $hedgehog = new Animal();
   $hedgehog->set_species("Jeż");
   $hedgehog->set_name("Franciszek");
   $hedgehog->set_weight("1.5");
-  $hedgehog->set_height("0.2");
+  $hedgehog->set_height("20");
 
   $animals = [$elephant, $cat, $hedgehog];
 ?>
@@ -85,6 +85,24 @@
 ?>
 </table>
 </div>
+
+<div class="form">
+  <form method="POST" action="index.php">
+    <input type="text" name="species" placeholder="gatunek" />
+    <input type="text" name="name" placeholder="imię" />
+    <input type="text" name="weight" placeholder="waga" />
+    <input type="text" name="height" placeholder="wzrost" />
+    <input type="submit" value="DODAJ" />
+  </form>
+</div>
+
+<?php
+  $newAnimal = new Animal();
+  if (isset($_POST["species"])) { $newAnimal->set_species($_POST["species"]); }
+  if (isset($_POST["name"])) { $newAnimal->set_name($_POST["name"]); }
+  if (isset($_POST["weight"])) { $newAnimal->set_weight($_POST["weight"]); }
+  if (isset($_POST["height"])) { $newAnimal->set_height($_POST["height"]); }
+?>
 
 </body>
 </html>

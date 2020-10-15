@@ -9,7 +9,7 @@ html body .animals {
   text-align: center;
 }
 html body .animals table {
-  width: 80%;
+  width: 130vh;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
@@ -31,4 +31,18 @@ html body .animals table tr:not(:first-child):hover {
 }
 html body .animals table tr:not(:first-child):nth-child(2n+1) {
   background-color: #4ee44e;
+}
+html body .form {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 10px;
+}
+html body .form input[type=text] {
+  width: 25vh;
+  height: 3vh;
+}
+html body .form input[type=submit] {
+  width: 20vh;
+  height: 4vh;
 }
