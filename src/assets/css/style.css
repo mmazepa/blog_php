@@ -1,0 +1,34 @@
+html {
+  background: linear-gradient(90deg, silver, whitesmoke, silver);
+}
+html body {
+  background: linear-gradient(90deg, darkgreen, lightgreen, darkgreen);
+}
+html body .animals {
+  padding: 10px;
+  text-align: center;
+}
+html body .animals table {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+html body .animals table tr th,
+html body .animals table tr td {
+  padding: 5px;
+}
+html body .animals table tr:first-child {
+  background-color: darkgreen;
+  color: whitesmoke;
+}
+html body .animals table tr:not(:first-child) {
+  background-color: lightgreen;
+}
+html body .animals table tr:not(:first-child):hover {
+  background-color: green !important;
+  color: whitesmoke;
+}
+html body .animals table tr:not(:first-child):nth-child(2n+1) {
+  background-color: #4ee44e;
+}
