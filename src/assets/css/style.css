@@ -4,6 +4,21 @@ html {
 html body {
   background: linear-gradient(90deg, darkgreen, lightgreen, darkgreen);
 }
+html body .databaseConnectionInfo {
+  color: #72bcd4;
+  text-align: center;
+  padding: 10px;
+}
+html body .databaseConnectionInfo .databaseConnectionLabel {
+  background-color: darkgreen;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+html body .databaseConnectionInfo .databaseConnectionMessage {
+  background-color: darkgreen;
+  color: #ff3814;
+  margin-top: 0px;
+}
 html body .animals {
   padding: 10px;
   text-align: center;

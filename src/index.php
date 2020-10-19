@@ -8,6 +8,39 @@
 </head>
 <body>
 
+<div class="databaseConnectionInfo">
+  <p class="databaseConnectionLabel">
+    Informacja zwrotna z bazy danych:
+  </p>
+  <p class="databaseConnectionMessage">
+    <?php
+      $servername = "localhost";
+      $dbname = "mysql";
+      $username = "user";
+      $password = "user1234";
+
+      try {
+        if (!defined("PDO::ATTR_DRIVER_NAME")) {
+          echo "PDO is unavailable!";
+        } else if (defined("PDO::ATTR_DRIVER_NAME")) {
+          echo "PDO is available!";
+        }
+        echo " ";
+
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "Connected successfully!";
+
+        // my code goes here...
+
+        $conn = null;
+      } catch(PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+      }
+    ?>
+  </p>
+</div>
+
 <?php
   class Animal {
     private $species;
