@@ -30,12 +30,23 @@
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo "Connected successfully!";
-
-        // my code goes here...
-
-        $conn = null;
       } catch(PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
+      }
+      echo " ";
+
+      $table = "animals";
+      try {
+         $sql = "CREATE table IF NOT EXISTS $table(
+           ID INT AUTO_INCREMENT PRIMARY KEY,
+           species VARCHAR(50) NOT NULL,
+           name VARCHAR(50) NOT NULL,
+           weight DECIMAL(5,2) NOT NULL,
+           height DECIMAL(5,2) NOT NULL);";
+         $conn->exec($sql);
+         print("Created $table Table.\n");
+      } catch(PDOException $e) {
+        echo $e->getMessage();
       }
     ?>
   </p>
@@ -73,26 +84,6 @@
       return $this->height;
     }
   }
-
-  $elephant = new Animal();
-  $elephant->set_species("Słoń");
-  $elephant->set_name("Kalafanty");
-  $elephant->set_weight("5000");
-  $elephant->set_height("200");
-
-  $cat = new Animal();
-  $cat->set_species("Kot");
-  $cat->set_name("Manfred");
-  $cat->set_weight("10");
-  $cat->set_height("50");
-
-  $hedgehog = new Animal();
-  $hedgehog->set_species("Jeż");
-  $hedgehog->set_name("Franciszek");
-  $hedgehog->set_weight("1.5");
-  $hedgehog->set_height("20");
-
-  $animals = [$elephant, $cat, $hedgehog];
 ?>
 
 <div class="animals">
@@ -105,14 +96,15 @@
     <th>Wzrost [cm]</th>
   </tr>
 <?php
+  $data = $conn->query("SELECT * FROM animals")->fetchAll();
   $i=1;
-  foreach ($animals as $animal) {
+  foreach ($data as $row) {
     echo "<tr>";
     echo "<td>" . $i++ . "</td>";
-    echo "<td>" . $animal->get_species() . "</td>";
-    echo "<td>" . $animal->get_name() . "</td>";
-    echo "<td>" . $animal->get_weight() . "</td>";
-    echo "<td>" . $animal->get_height() . "</td>";
+    echo "<td>" . $row[1] . "</td>";
+    echo "<td>" . $row[2] . "</td>";
+    echo "<td>" . $row[3] . "</td>";
+    echo "<td>" . $row[4] . "</td>";
     echo "</tr>";
   }
 ?>
@@ -120,7 +112,7 @@
 </div>
 
 <div class="form">
-  <form method="POST" action="index.php">
+  <form method="POST" onsubmit="" action="index.php">
     <input type="text" name="species" placeholder="gatunek" />
     <input type="text" name="name" placeholder="imię" />
     <input type="text" name="weight" placeholder="waga" />
@@ -135,6 +127,16 @@
   if (isset($_POST["name"])) { $newAnimal->set_name($_POST["name"]); }
   if (isset($_POST["weight"])) { $newAnimal->set_weight($_POST["weight"]); }
   if (isset($_POST["height"])) { $newAnimal->set_height($_POST["height"]); }
+
+  if ($newAnimal != null && $newAnimal != new Animal()) {
+    $sql = "INSERT INTO animals (species, name, weight, height) VALUES (?,?,?,?)";
+    $conn->prepare($sql)->execute([
+      $newAnimal->get_species(),
+      $newAnimal->get_name(),
+      $newAnimal->get_weight(),
+      $newAnimal->get_height()
+    ]);
+  }
 ?>
 
 </body>
