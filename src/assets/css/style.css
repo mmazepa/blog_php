@@ -24,7 +24,7 @@ html body .animals {
   text-align: center;
 }
 html body .animals table {
-  width: 130vh;
+  width: 75vw;
   margin-left: auto;
   margin-right: auto;
   border-collapse: collapse;
@@ -68,12 +68,12 @@ html body .form {
   padding: 10px;
 }
 html body .form input[type=text] {
-  width: 25vh;
-  height: 3vh;
+  width: 15vw;
+  height: 2vw;
 }
 html body .form input[type=submit] {
-  width: 20vh;
-  height: 4vh;
+  width: 15vw;
+  height: 3vw;
 }
 html body .form input[type=submit].addButton {
   background-color: #00b300;

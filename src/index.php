@@ -103,21 +103,25 @@
     <!-- <th>Usuń</th> -->
   </tr>
 <?php
-  $data = $conn->query("SELECT * FROM animals")->fetchAll();
-  $i=1;
-  foreach ($data as $row) {
-    echo "<tr id=\"" . $row[0] ."\">";
-    echo "<td>" . $i++ . "</td>";
-    echo "<td>" . $row[1] . "</td>";
-    echo "<td>" . $row[2] . "</td>";
-    echo "<td>" . $row[3] . "</td>";
-    echo "<td>" . $row[4] . "</td>";
-    // echo "<td>"
+  $data = $conn->query("SELECT id, species, name, weight, height FROM animals")->fetchAll();
+  if ($data) {
+    $i=1;
+    foreach ($data as $row) {
+      echo "<tr id=\"" . $row["id"] ."\">";
+      echo "<td>" . $i++ . "</td>";
+      echo "<td>" . $row["species"] . "</td>";
+      echo "<td>" . $row["name"] . "</td>";
+      echo "<td>" . $row["weight"] . "</td>";
+      echo "<td>" . $row["height"] . "</td>";
+      // echo "<td>"
 ?>
-    <!-- <button class="deteleButton" onClick="alert('USUNĄĆ ID=' + this.parentElement.parentElement.id + '? (na razie nie działa)')">X</button> -->
+      <!-- <button class="deteleButton" onClick="alert('USUNĄĆ ID=' + this.parentElement.parentElement.id + '? (na razie nie działa)')">X</button> -->
 <?php
-    // echo "</td>";
-    echo "</tr>";
+      // echo "</td>";
+      echo "</tr>";
+    }
+  } else {
+    echo "<tr><td colspan=\"5\">Nie ma żadnych zwierząt w bazie.</td></tr>";
   }
 ?>
 </table>
@@ -125,10 +129,10 @@
 
 <div class="form">
   <form method="POST" action="index.php">
-    <input type="text" name="species" placeholder="gatunek" />
-    <input type="text" name="name" placeholder="imię" />
-    <input type="text" name="weight" placeholder="waga" />
-    <input type="text" name="height" placeholder="wzrost" />
+    <input type="text" name="species" placeholder="gatunek" required />
+    <input type="text" name="name" placeholder="imię" required />
+    <input type="text" name="weight" placeholder="waga" required />
+    <input type="text" name="height" placeholder="wzrost" required />
     <input class="addButton" type="submit" value="DODAJ" />
   </form>
 </div>
@@ -140,7 +144,7 @@
       <?php
         $i=1;
         foreach ($data as $row) {
-          echo "<option value=\"" . $row[0] . "\">" . $i++ . ". " . $row[1] . ", " . $row[2] . "</option>";
+          echo "<option value=\"" . $row["id"] . "\">" . $i++ . ". " . $row["species"] . ", " . $row["name"] . "</option>";
         }
       ?>
     </select>
@@ -163,6 +167,10 @@
       $newAnimal->get_weight(),
       $newAnimal->get_height()
     ]);
+    $newAnimal = null;
+    $_POST = array();
+    header("Location: index.php", true, 303);
+    exit();
   }
 
   if(isset($_POST["delSubmit"])){
@@ -175,6 +183,9 @@
     } else {
         debug_to_console("Please select the value.");
     }
+    $_POST = array();
+    header("Location: index.php", true, 303);
+    exit();
   }
 ?>
 
