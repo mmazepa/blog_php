@@ -52,39 +52,7 @@
   </p>
 </div>
 
-<?php
-  class Animal {
-    private $species;
-    private $name;
-    private $weight;
-    private $height;
-
-    function set_species($species) {
-      $this->species = $species;
-    }
-    function get_species() {
-      return $this->species;
-    }
-    function set_name($name) {
-      $this->name = $name;
-    }
-    function get_name() {
-      return $this->name;
-    }
-    function set_weight($weight) {
-      $this->weight = $weight;
-    }
-    function get_weight() {
-      return $this->weight;
-    }
-    function set_height($height) {
-      $this->height = $height;
-    }
-    function get_height() {
-      return $this->height;
-    }
-  }
-?>
+<?php require "partials/Animal.php"; ?>
 
 <div class="animals">
 <table>
@@ -136,35 +104,8 @@
   </form>
 </div>
 
-<?php
-  $newAnimal = new Animal();
-  if (isset($_POST["species"])) { $newAnimal->set_species($_POST["species"]); }
-  if (isset($_POST["name"])) { $newAnimal->set_name($_POST["name"]); }
-  if (isset($_POST["weight"])) { $newAnimal->set_weight($_POST["weight"]); }
-  if (isset($_POST["height"])) { $newAnimal->set_height($_POST["height"]); }
-
-  if ($newAnimal != null && $newAnimal != new Animal()) {
-    $sql = "INSERT INTO animals (species, name, weight, height) VALUES (?,?,?,?)";
-    $conn->prepare($sql)->execute([
-      $newAnimal->get_species(),
-      $newAnimal->get_name(),
-      $newAnimal->get_weight(),
-      $newAnimal->get_height()
-    ]);
-    $newAnimal = null;
-    $_POST = array();
-    header("Location: index.php", true, 303);
-    exit();
-  }
-
-  if(isset($_POST["idToDelete"])) {
-    $sql = "DELETE FROM animals WHERE ID = :animal_id";
-    $conn->prepare($sql)->execute([":animal_id" => $_POST["idToDelete"]]);
-    $_POST = array();
-    header("Location: index.php", true, 303);
-    exit();
-  }
-?>
+<?php require "partials/crud/insert.php"; ?>
+<?php require "partials/crud/delete.php"; ?>
 
 </body>
 </html>
