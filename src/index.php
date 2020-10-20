@@ -13,12 +13,8 @@
     Informacja zwrotna z bazy danych:
   </p>
   <p class="databaseConnectionMessage">
+    <?php require "partials/credentials.php"; ?>
     <?php
-      $servername = "localhost";
-      $dbname = "mysql";
-      $username = "user";
-      $password = "user1234";
-
       try {
         if (!defined("PDO::ATTR_DRIVER_NAME")) {
           echo "PDO is unavailable!";
