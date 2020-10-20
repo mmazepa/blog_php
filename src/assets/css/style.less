@@ -39,6 +39,25 @@ html {
             padding: 5px;
           }
 
+          td {
+            .deteleButton {
+              background-color: darken(red, 10%);
+              color: whitesmoke;
+              font-weight: bold;
+              font-size: 16px;
+              border: none;
+
+              &:hover {
+                background-color: darken(red, 25%);
+              }
+
+              &:active {
+                background-color: whitesmoke;
+                color: darken(red, 25%);
+              }
+            }
+          }
+
           &:first-child {
             background-color: darkgreen;
             color: whitesmoke;
@@ -74,6 +93,21 @@ html {
       input[type=submit] {
         width: 20vh;
         height: 4vh;
+
+        &.addButton {
+          background-color: lighten(green, 10%);
+          color: whitesmoke;
+          border: none;
+
+          &:hover {
+            background-color: darken(green, 5%);
+          }
+
+          &:active {
+            background-color: whitesmoke;
+            color: darken(green, 5%);
+          }
+        }
       }
     }
   }

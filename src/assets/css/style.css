@@ -33,6 +33,20 @@ html body .animals table tr th,
 html body .animals table tr td {
   padding: 5px;
 }
+html body .animals table tr td .deteleButton {
+  background-color: #cc0000;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+}
+html body .animals table tr td .deteleButton:hover {
+  background-color: #800000;
+}
+html body .animals table tr td .deteleButton:active {
+  background-color: whitesmoke;
+  color: #800000;
+}
 html body .animals table tr:first-child {
   background-color: darkgreen;
   color: whitesmoke;
@@ -60,4 +74,16 @@ html body .form input[type=text] {
 html body .form input[type=submit] {
   width: 20vh;
   height: 4vh;
+}
+html body .form input[type=submit].addButton {
+  background-color: #00b300;
+  color: whitesmoke;
+  border: none;
+}
+html body .form input[type=submit].addButton:hover {
+  background-color: #006700;
+}
+html body .form input[type=submit].addButton:active {
+  background-color: whitesmoke;
+  color: #006700;
 }

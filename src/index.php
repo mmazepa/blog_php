@@ -94,17 +94,23 @@
     <th>Imię</th>
     <th>Waga [kg]</th>
     <th>Wzrost [cm]</th>
+    <th>Usuń</th>
   </tr>
 <?php
   $data = $conn->query("SELECT * FROM animals")->fetchAll();
   $i=1;
   foreach ($data as $row) {
-    echo "<tr>";
+    echo "<tr id=\"" . $row[0] ."\">";
     echo "<td>" . $i++ . "</td>";
     echo "<td>" . $row[1] . "</td>";
     echo "<td>" . $row[2] . "</td>";
     echo "<td>" . $row[3] . "</td>";
     echo "<td>" . $row[4] . "</td>";
+    echo "<td>"
+?>
+    <button class="deteleButton" onClick="alert('USUNĄĆ ID=' + this.parentElement.parentElement.id + '? (na razie nie działa)')">X</button>
+<?php
+    echo "</td>";
     echo "</tr>";
   }
 ?>
@@ -112,12 +118,12 @@
 </div>
 
 <div class="form">
-  <form method="POST" onsubmit="" action="index.php">
+  <form method="POST" action="index.php">
     <input type="text" name="species" placeholder="gatunek" />
     <input type="text" name="name" placeholder="imię" />
     <input type="text" name="weight" placeholder="waga" />
     <input type="text" name="height" placeholder="wzrost" />
-    <input type="submit" value="DODAJ" />
+    <input class="addButton" type="submit" value="DODAJ" />
   </form>
 </div>
 
