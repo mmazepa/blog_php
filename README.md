@@ -2,7 +2,7 @@
 
 Prosty CRUD napisany w języku **PHP**. Styl wspierają pliki **Less**.
 
-Baza danych: MySQL + PDO.
+Baza danych: **MySQL** + **PDO**.
 
 Przykładowy sposób uruchomienia:
 * komenda `php -S localhost:8080` w folderze projektu
