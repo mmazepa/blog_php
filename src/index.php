@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<?php
+  function debug_to_console($text) {
+    echo "<script>alert('" . $text . "');</script>";
+  }
+?>
+
 <div class="databaseConnectionInfo">
   <p class="databaseConnectionLabel">
     Informacja zwrotna z bazy danych:
@@ -94,7 +100,7 @@
     <th>Imię</th>
     <th>Waga [kg]</th>
     <th>Wzrost [cm]</th>
-    <th>Usuń</th>
+    <!-- <th>Usuń</th> -->
   </tr>
 <?php
   $data = $conn->query("SELECT * FROM animals")->fetchAll();
@@ -106,11 +112,11 @@
     echo "<td>" . $row[2] . "</td>";
     echo "<td>" . $row[3] . "</td>";
     echo "<td>" . $row[4] . "</td>";
-    echo "<td>"
+    // echo "<td>"
 ?>
-    <button class="deteleButton" onClick="alert('USUNĄĆ ID=' + this.parentElement.parentElement.id + '? (na razie nie działa)')">X</button>
+    <!-- <button class="deteleButton" onClick="alert('USUNĄĆ ID=' + this.parentElement.parentElement.id + '? (na razie nie działa)')">X</button> -->
 <?php
-    echo "</td>";
+    // echo "</td>";
     echo "</tr>";
   }
 ?>
@@ -124,6 +130,21 @@
     <input type="text" name="weight" placeholder="waga" />
     <input type="text" name="height" placeholder="wzrost" />
     <input class="addButton" type="submit" value="DODAJ" />
+  </form>
+</div>
+
+<div class="form">
+  <form method="POST" action="index.php">
+    <select name="toDelete">
+      <option value="" disabled>Co usunąć?</option>
+      <?php
+        $i=1;
+        foreach ($data as $row) {
+          echo "<option value=\"" . $row[0] . "\">" . $i++ . ". " . $row[1] . ", " . $row[2] . "</option>";
+        }
+      ?>
+    </select>
+    <input class="deleteButton" type="submit" name="delSubmit" value="USUŃ" />
   </form>
 </div>
 
@@ -142,6 +163,18 @@
       $newAnimal->get_weight(),
       $newAnimal->get_height()
     ]);
+  }
+
+  if(isset($_POST["delSubmit"])){
+    if(!empty($_POST["toDelete"])) {
+        $selected = $_POST["toDelete"];
+        debug_to_console("You have chosen: " . $selected);
+
+        $sql = "DELETE FROM animals WHERE ID = :animal_id";
+        $conn->prepare($sql)->execute([":animal_id" => $selected]);
+    } else {
+        debug_to_console("Please select the value.");
+    }
   }
 ?>
 
