@@ -87,17 +87,3 @@ html body .form input[type=submit].addButton:active {
   background-color: whitesmoke;
   color: #006700;
 }
-html body .form input[type=submit].deleteButton {
-  background-color: #cc0000;
-  color: whitesmoke;
-  font-weight: bold;
-  font-size: 16px;
-  border: none;
-}
-html body .form input[type=submit].deleteButton:hover {
-  background-color: #800000;
-}
-html body .form input[type=submit].deleteButton:active {
-  background-color: whitesmoke;
-  color: #800000;
-}

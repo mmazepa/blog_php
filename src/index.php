@@ -8,12 +8,6 @@
 </head>
 <body>
 
-<?php
-  function debug_to_console($text) {
-    echo "<script>alert('" . $text . "');</script>";
-  }
-?>
-
 <div class="databaseConnectionInfo">
   <p class="databaseConnectionLabel">
     Informacja zwrotna z bazy danych:
@@ -100,28 +94,33 @@
     <th>Imię</th>
     <th>Waga [kg]</th>
     <th>Wzrost [cm]</th>
-    <!-- <th>Usuń</th> -->
+    <th>Usuń</th>
   </tr>
 <?php
   $data = $conn->query("SELECT id, species, name, weight, height FROM animals")->fetchAll();
   if ($data) {
     $i=1;
     foreach ($data as $row) {
-      echo "<tr id=\"" . $row["id"] ."\">";
+      echo "<tr>";
       echo "<td>" . $i++ . "</td>";
       echo "<td>" . $row["species"] . "</td>";
       echo "<td>" . $row["name"] . "</td>";
       echo "<td>" . $row["weight"] . "</td>";
       echo "<td>" . $row["height"] . "</td>";
-      // echo "<td>"
+      echo "<td>"
 ?>
-      <!-- <button class="deteleButton" onClick="alert('USUNĄĆ ID=' + this.parentElement.parentElement.id + '? (na razie nie działa)')">X</button> -->
+      <form method="POST" action="index.php">
+        <input type="text" name="idToDelete" value="<?php echo $row["id"] ?>" hidden readonly />
+        <input  type="submit"
+                class="deteleButton"
+                value="X" />
+      </form>
 <?php
-      // echo "</td>";
+      echo "</td>";
       echo "</tr>";
     }
   } else {
-    echo "<tr><td colspan=\"5\">Nie ma żadnych zwierząt w bazie.</td></tr>";
+    echo "<tr><td colspan=\"6\">Nie ma żadnych zwierząt w bazie.</td></tr>";
   }
 ?>
 </table>
@@ -134,21 +133,6 @@
     <input type="text" name="weight" placeholder="waga" required />
     <input type="text" name="height" placeholder="wzrost" required />
     <input class="addButton" type="submit" value="DODAJ" />
-  </form>
-</div>
-
-<div class="form">
-  <form method="POST" action="index.php">
-    <select name="toDelete">
-      <option value="" disabled>Co usunąć?</option>
-      <?php
-        $i=1;
-        foreach ($data as $row) {
-          echo "<option value=\"" . $row["id"] . "\">" . $i++ . ". " . $row["species"] . ", " . $row["name"] . "</option>";
-        }
-      ?>
-    </select>
-    <input class="deleteButton" type="submit" name="delSubmit" value="USUŃ" />
   </form>
 </div>
 
@@ -173,16 +157,9 @@
     exit();
   }
 
-  if(isset($_POST["delSubmit"])){
-    if(!empty($_POST["toDelete"])) {
-        $selected = $_POST["toDelete"];
-        debug_to_console("You have chosen: " . $selected);
-
-        $sql = "DELETE FROM animals WHERE ID = :animal_id";
-        $conn->prepare($sql)->execute([":animal_id" => $selected]);
-    } else {
-        debug_to_console("Please select the value.");
-    }
+  if(isset($_POST["idToDelete"])) {
+    $sql = "DELETE FROM animals WHERE ID = :animal_id";
+    $conn->prepare($sql)->execute([":animal_id" => $_POST["idToDelete"]]);
     $_POST = array();
     header("Location: index.php", true, 303);
     exit();
