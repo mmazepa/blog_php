@@ -10,6 +10,7 @@ html body {
   margin-right: auto;
   background: linear-gradient(90deg, darkgreen, lightgreen, darkgreen);
   box-shadow: 5px 5px 10px #003100;
+  margin-top: 2.5vh;
   width: 90%;
 }
 html body .databaseConnectionInfo {
@@ -90,8 +91,8 @@ html body .form {
   padding: 10px;
 }
 html body .form input[type=text] {
-  width: 15vw;
-  height: 2vw;
+  width: 15vw !important;
+  height: 3vw !important;
 }
 html body .form input[type=submit] {
   width: 15vw;

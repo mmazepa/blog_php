@@ -1,7 +1,7 @@
 # simple_PHP_CRUD
 
 Prosty CRUD napisany w języku **PHP**.
-Styl wspierają pliki **Less**.
+Styl wspierają pliki **Less** oraz **Bootstrap**.
 Drobne wsparcie skryptowe - **JavaScript**.
 
 Baza danych: **MySQL** + **PDO**.

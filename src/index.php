@@ -6,10 +6,14 @@
   <link type="text/css" href="assets/css/style.css" rel="stylesheet"></link>
   <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon"/>
   <script src="assets/js/script.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-<div class="databaseConnectionInfo">
+<div class="databaseConnectionInfo container">
   <p class="databaseConnectionLabel">
     Informacja zwrotna z bazy danych:
   </p>
@@ -41,7 +45,7 @@
            weight DECIMAL(5,2) NOT NULL,
            height DECIMAL(5,2) NOT NULL);";
          $conn->exec($sql);
-         print("Created $table Table.\n");
+         echo "Created $table Table.\n";
       } catch(PDOException $e) {
         echo $e->getMessage();
       }
@@ -51,7 +55,7 @@
 
 <?php require "partials/Animal.php"; ?>
 
-<div class="animals">
+<div class="animals container">
 <table>
   <tr>
     <th>L.P.</th>
@@ -66,7 +70,7 @@
 </table>
 </div>
 
-<div class="form">
+<div class="form container">
   <form method="POST" action="index.php">
     <input type="text" name="species" placeholder="gatunek" required />
     <input type="text" name="name" placeholder="imię" required />
@@ -80,7 +84,7 @@
 <?php require "partials/crud/update.php"; ?>
 <?php require "partials/crud/delete.php"; ?>
 
-<div id="updateDiv" class="update" hidden>
+<div id="updateDiv" class="update container" hidden>
   <div class="form">
     <form method="POST" action="index.php">
       <input id="form00" type="text" name="idToEdit" placeholder="id" readonly="true" hidden required />
