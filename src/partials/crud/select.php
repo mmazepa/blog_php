@@ -11,6 +11,14 @@
       echo "<td>" . $row["height"] . "</td>";
       echo "<td>"
 ?>
+      <button class="updateButton"
+              onClick="enableUpdateForm(<?php echo "'" . $row["id"] . "','". $row["species"] . "','" . $row["name"] . "','" . $row["weight"] . "','" . $row["height"] . "'"; ?>)">
+        EDIT
+      </button>
+<?php
+      echo "</td>";
+      echo "<td>"
+?>
       <form method="POST" action="index.php">
         <input type="text" name="idToDelete" value="<?php echo $row["id"] ?>" hidden readonly />
         <input  type="submit"

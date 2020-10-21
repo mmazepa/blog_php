@@ -5,6 +5,7 @@
   <title>Zwierzęcy CRUD w PHP</title>
   <link type="text/css" href="assets/css/style.css" rel="stylesheet"></link>
   <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon"/>
+  <script src="assets/js/script.js"></script>
 </head>
 <body>
 
@@ -58,6 +59,7 @@
     <th>Imię</th>
     <th>Waga [kg]</th>
     <th>Wzrost [cm]</th>
+    <th>Edytuj</th>
     <th>Usuń</th>
   </tr>
   <?php require "partials/crud/select.php"; ?>
@@ -75,7 +77,28 @@
 </div>
 
 <?php require "partials/crud/insert.php"; ?>
+<?php require "partials/crud/update.php"; ?>
 <?php require "partials/crud/delete.php"; ?>
+
+<div id="updateDiv" class="update" hidden>
+  <div class="form">
+    <form method="POST" action="index.php">
+      <input id="form00" type="text" name="idToEdit" placeholder="id" readonly="true" hidden required />
+      <input id="form01" type="text" name="speciesEdit" placeholder="gatunek" readonly="true" required />
+      <input id="form02" type="text" name="nameEdit" placeholder="imię" readonly="true" required />
+      <input id="form03" type="text" name="weightEdit" placeholder="waga" readonly="true" required />
+      <input id="form04" type="text" name="heightEdit" placeholder="wzrost" readonly="true" required />
+      <input id="update" class="updateButton" type="submit" value="ZAPISZ" disabled />
+      <button id="cancel"
+              class="cancelButton"
+              type="button"
+              onClick="disableUpdateForm()"
+              disabled>
+        ANULUJ
+      </button>
+    </form>
+  </div>
+</div>
 
 </body>
 </html>

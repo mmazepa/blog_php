@@ -1,10 +1,18 @@
 // out: style.css
 
+.centerBox {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 html {
   background: linear-gradient(90deg, silver, whitesmoke, silver);
 
   body {
+    .centerBox;
     background: linear-gradient(90deg, darkgreen, lightgreen, darkgreen);
+    box-shadow: 5px 5px 10px darken(darkgreen, 10%);
+    width: 90%;
 
     .databaseConnectionInfo {
       color: darken(lightblue, 15%);
@@ -29,9 +37,8 @@ html {
       text-align: center;
 
       table {
-        width: 75vw;
-        margin-left: auto;
-        margin-right: auto;
+        .centerBox;
+        width: 90%;
         border-collapse: collapse;
 
         tr {
@@ -54,6 +61,23 @@ html {
               &:active {
                 background-color: whitesmoke;
                 color: darken(red, 25%);
+              }
+            }
+
+            .updateButton {
+              background-color: darken(blue, 10%);
+              color: whitesmoke;
+              font-weight: bold;
+              font-size: 16px;
+              border: none;
+
+              &:hover {
+                background-color: darken(blue, 25%);
+              }
+
+              &:active {
+                background-color: whitesmoke;
+                color: darken(blue, 25%);
               }
             }
           }
@@ -80,8 +104,7 @@ html {
     }
 
     .form {
-      margin-left: auto;
-      margin-right: auto;
+      .centerBox;
       text-align: center;
       padding: 10px;
 
@@ -108,7 +131,58 @@ html {
             color: darken(green, 5%);
           }
         }
+
+        &.updateButton {
+          background-color: lighten(blue, 10%);
+          color: whitesmoke;
+          border: none;
+          width: 7.5vw;
+
+          &:hover {
+            background-color: darken(blue, 5%);
+          }
+
+          &:active {
+            background-color: whitesmoke;
+            color: darken(blue, 5%);
+          }
+
+          &:disabled {
+            background-color: silver;
+            color: gray;
+            cursor: not-allowed;
+          }
+        }
       }
+
+      button {
+        &.cancelButton {
+          background-color: lighten(red, 10%);
+          color: whitesmoke;
+          border: none;
+          width: 7.5vw;
+          height: 3vw;
+
+          &:hover {
+            background-color: darken(red, 5%);
+          }
+
+          &:active {
+            background-color: whitesmoke;
+            color: darken(red, 5%);
+          }
+
+          &:disabled {
+            background-color: silver;
+            color: gray;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+
+    .update {
+      background: linear-gradient(90deg, darken(darkgreen, 10%), darken(lightgreen, 10%), darken(darkgreen, 10%));
     }
   }
 }

@@ -1,8 +1,16 @@
+.centerBox {
+  margin-left: auto;
+  margin-right: auto;
+}
 html {
   background: linear-gradient(90deg, silver, whitesmoke, silver);
 }
 html body {
+  margin-left: auto;
+  margin-right: auto;
   background: linear-gradient(90deg, darkgreen, lightgreen, darkgreen);
+  box-shadow: 5px 5px 10px #003100;
+  width: 90%;
 }
 html body .databaseConnectionInfo {
   color: #72bcd4;
@@ -24,9 +32,9 @@ html body .animals {
   text-align: center;
 }
 html body .animals table {
-  width: 75vw;
   margin-left: auto;
   margin-right: auto;
+  width: 90%;
   border-collapse: collapse;
 }
 html body .animals table tr th,
@@ -46,6 +54,20 @@ html body .animals table tr td .deteleButton:hover {
 html body .animals table tr td .deteleButton:active {
   background-color: whitesmoke;
   color: #800000;
+}
+html body .animals table tr td .updateButton {
+  background-color: #0000cc;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+}
+html body .animals table tr td .updateButton:hover {
+  background-color: #000080;
+}
+html body .animals table tr td .updateButton:active {
+  background-color: whitesmoke;
+  color: #000080;
 }
 html body .animals table tr:first-child {
   background-color: darkgreen;
@@ -86,4 +108,44 @@ html body .form input[type=submit].addButton:hover {
 html body .form input[type=submit].addButton:active {
   background-color: whitesmoke;
   color: #006700;
+}
+html body .form input[type=submit].updateButton {
+  background-color: #3333ff;
+  color: whitesmoke;
+  border: none;
+  width: 7.5vw;
+}
+html body .form input[type=submit].updateButton:hover {
+  background-color: #0000e6;
+}
+html body .form input[type=submit].updateButton:active {
+  background-color: whitesmoke;
+  color: #0000e6;
+}
+html body .form input[type=submit].updateButton:disabled {
+  background-color: silver;
+  color: gray;
+  cursor: not-allowed;
+}
+html body .form button.cancelButton {
+  background-color: #ff3333;
+  color: whitesmoke;
+  border: none;
+  width: 7.5vw;
+  height: 3vw;
+}
+html body .form button.cancelButton:hover {
+  background-color: #e60000;
+}
+html body .form button.cancelButton:active {
+  background-color: whitesmoke;
+  color: #e60000;
+}
+html body .form button.cancelButton:disabled {
+  background-color: silver;
+  color: gray;
+  cursor: not-allowed;
+}
+html body .update {
+  background: linear-gradient(90deg, #003100, #64e764, #003100);
 }
