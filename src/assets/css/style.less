@@ -42,53 +42,29 @@ html {
         width: 90%;
         border-collapse: collapse;
 
-        tr {
-          th, td {
-            padding: 5px;
-          }
-
-          td {
-            .deteleButton {
-              background-color: darken(red, 10%);
-              color: whitesmoke;
-              font-weight: bold;
-              font-size: 16px;
-              border: none;
-
-              &:hover {
-                background-color: darken(red, 25%);
-              }
-
-              &:active {
-                background-color: whitesmoke;
-                color: darken(red, 25%);
-              }
-            }
-
-            .updateButton {
-              background-color: darken(blue, 10%);
-              color: whitesmoke;
-              font-weight: bold;
-              font-size: 16px;
-              border: none;
-
-              &:hover {
-                background-color: darken(blue, 25%);
-              }
-
-              &:active {
-                background-color: whitesmoke;
-                color: darken(blue, 25%);
-              }
+        thead, tbody {
+          tr {
+            th, td {
+              padding: 5px;
             }
           }
+        }
 
-          &:first-child {
-            background-color: darkgreen;
-            color: whitesmoke;
+        thead {
+          tr {
+            th {
+              text-align: center;
+            }
+
+            &:first-child {
+              background-color: darkgreen;
+              color: whitesmoke;
+            }
           }
+        }
 
-          &:not(:first-child) {
+        tbody {
+          tr {
             background-color: lightgreen;
 
             &:hover {
@@ -98,6 +74,42 @@ html {
 
             &:nth-child(2n+1) {
               background-color: darken(lightgreen, 15%);
+            }
+
+            td {
+              .deleteButton {
+                background-color: darken(red, 10%);
+                color: whitesmoke;
+                font-weight: bold;
+                font-size: 16px;
+                border: none;
+
+                &:hover {
+                  background-color: darken(red, 25%);
+                }
+
+                &:active {
+                  background-color: whitesmoke;
+                  color: darken(red, 25%);
+                }
+              }
+
+              .updateButton {
+                background-color: darken(blue, 10%);
+                color: whitesmoke;
+                font-weight: bold;
+                font-size: 16px;
+                border: none;
+
+                &:hover {
+                  background-color: darken(blue, 25%);
+                }
+
+                &:active {
+                  background-color: whitesmoke;
+                  color: darken(blue, 25%);
+                }
+              }
             }
           }
         }
@@ -114,14 +126,13 @@ html {
         height: 3vw !important;
       }
 
-      input[type=submit] {
-        width: 15vw;
-        height: 3vw;
-
+      button {
         &.addButton {
           background-color: lighten(green, 10%);
           color: whitesmoke;
           border: none;
+          width: 15vw;
+          height: 3vw;
 
           &:hover {
             background-color: darken(green, 5%);
@@ -138,6 +149,8 @@ html {
           color: whitesmoke;
           border: none;
           width: 7.5vw;
+          height: 3vw;
+          font-size: smaller;
 
           &:hover {
             background-color: darken(blue, 5%);
@@ -154,15 +167,14 @@ html {
             cursor: not-allowed;
           }
         }
-      }
 
-      button {
         &.cancelButton {
           background-color: lighten(red, 10%);
           color: whitesmoke;
           border: none;
           width: 7.5vw;
           height: 3vw;
+          font-size: smaller;
 
           &:hover {
             background-color: darken(red, 5%);

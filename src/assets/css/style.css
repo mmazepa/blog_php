@@ -38,51 +38,56 @@ html body .animals table {
   width: 90%;
   border-collapse: collapse;
 }
-html body .animals table tr th,
-html body .animals table tr td {
+html body .animals table thead tr th,
+html body .animals table tbody tr th,
+html body .animals table thead tr td,
+html body .animals table tbody tr td {
   padding: 5px;
 }
-html body .animals table tr td .deteleButton {
+html body .animals table thead tr th {
+  text-align: center;
+}
+html body .animals table thead tr:first-child {
+  background-color: darkgreen;
+  color: whitesmoke;
+}
+html body .animals table tbody tr {
+  background-color: lightgreen;
+}
+html body .animals table tbody tr:hover {
+  background-color: green !important;
+  color: whitesmoke;
+}
+html body .animals table tbody tr:nth-child(2n+1) {
+  background-color: #4ee44e;
+}
+html body .animals table tbody tr td .deleteButton {
   background-color: #cc0000;
   color: whitesmoke;
   font-weight: bold;
   font-size: 16px;
   border: none;
 }
-html body .animals table tr td .deteleButton:hover {
+html body .animals table tbody tr td .deleteButton:hover {
   background-color: #800000;
 }
-html body .animals table tr td .deteleButton:active {
+html body .animals table tbody tr td .deleteButton:active {
   background-color: whitesmoke;
   color: #800000;
 }
-html body .animals table tr td .updateButton {
+html body .animals table tbody tr td .updateButton {
   background-color: #0000cc;
   color: whitesmoke;
   font-weight: bold;
   font-size: 16px;
   border: none;
 }
-html body .animals table tr td .updateButton:hover {
+html body .animals table tbody tr td .updateButton:hover {
   background-color: #000080;
 }
-html body .animals table tr td .updateButton:active {
+html body .animals table tbody tr td .updateButton:active {
   background-color: whitesmoke;
   color: #000080;
-}
-html body .animals table tr:first-child {
-  background-color: darkgreen;
-  color: whitesmoke;
-}
-html body .animals table tr:not(:first-child) {
-  background-color: lightgreen;
-}
-html body .animals table tr:not(:first-child):hover {
-  background-color: green !important;
-  color: whitesmoke;
-}
-html body .animals table tr:not(:first-child):nth-child(2n+1) {
-  background-color: #4ee44e;
 }
 html body .form {
   margin-left: auto;
@@ -94,36 +99,36 @@ html body .form input[type=text] {
   width: 15vw !important;
   height: 3vw !important;
 }
-html body .form input[type=submit] {
-  width: 15vw;
-  height: 3vw;
-}
-html body .form input[type=submit].addButton {
+html body .form button.addButton {
   background-color: #00b300;
   color: whitesmoke;
   border: none;
+  width: 15vw;
+  height: 3vw;
 }
-html body .form input[type=submit].addButton:hover {
+html body .form button.addButton:hover {
   background-color: #006700;
 }
-html body .form input[type=submit].addButton:active {
+html body .form button.addButton:active {
   background-color: whitesmoke;
   color: #006700;
 }
-html body .form input[type=submit].updateButton {
+html body .form button.updateButton {
   background-color: #3333ff;
   color: whitesmoke;
   border: none;
   width: 7.5vw;
+  height: 3vw;
+  font-size: smaller;
 }
-html body .form input[type=submit].updateButton:hover {
+html body .form button.updateButton:hover {
   background-color: #0000e6;
 }
-html body .form input[type=submit].updateButton:active {
+html body .form button.updateButton:active {
   background-color: whitesmoke;
   color: #0000e6;
 }
-html body .form input[type=submit].updateButton:disabled {
+html body .form button.updateButton:disabled {
   background-color: silver;
   color: gray;
   cursor: not-allowed;
@@ -134,6 +139,7 @@ html body .form button.cancelButton {
   border: none;
   width: 7.5vw;
   height: 3vw;
+  font-size: smaller;
 }
 html body .form button.cancelButton:hover {
   background-color: #e60000;

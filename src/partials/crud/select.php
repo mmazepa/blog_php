@@ -13,7 +13,7 @@
 ?>
       <button class="updateButton"
               onClick="enableUpdateForm(<?php echo "'" . $row["id"] . "','". $row["species"] . "','" . $row["name"] . "','" . $row["weight"] . "','" . $row["height"] . "'"; ?>)">
-        EDIT
+        <span class="glyphicon glyphicon-pencil"></span>
       </button>
 <?php
       echo "</td>";
@@ -21,9 +21,10 @@
 ?>
       <form method="POST" action="index.php">
         <input type="text" name="idToDelete" value="<?php echo $row["id"] ?>" hidden readonly />
-        <input  type="submit"
-                class="deteleButton"
-                value="X" />
+        <button type="submit"
+                class="deleteButton">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
       </form>
 <?php
       echo "</td>";

@@ -6,15 +6,15 @@
   <link type="text/css" href="assets/css/style.css" rel="stylesheet"></link>
   <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon"/>
   <script src="assets/js/script.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <div class="databaseConnectionInfo container">
   <p class="databaseConnectionLabel">
+    <span class="glyphicon glyphicon-alert"></span>
     Informacja zwrotna z bazy danych:
   </p>
   <p class="databaseConnectionMessage">
@@ -57,16 +57,20 @@
 
 <div class="animals container">
 <table>
-  <tr>
-    <th>L.P.</th>
-    <th>Gatunek</th>
-    <th>Imię</th>
-    <th>Waga [kg]</th>
-    <th>Wzrost [cm]</th>
-    <th>Edytuj</th>
-    <th>Usuń</th>
-  </tr>
-  <?php require "partials/crud/select.php"; ?>
+  <thead>
+    <tr>
+      <th>L.P.</th>
+      <th>Gatunek</th>
+      <th>Imię</th>
+      <th>Waga [kg]</th>
+      <th>Wzrost [cm]</th>
+      <th>Edytuj</th>
+      <th>Usuń</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php require "partials/crud/select.php"; ?>
+  </tbody>
 </table>
 </div>
 
@@ -76,7 +80,10 @@
     <input type="text" name="name" placeholder="imię" required />
     <input type="text" name="weight" placeholder="waga" required />
     <input type="text" name="height" placeholder="wzrost" required />
-    <input class="addButton" type="submit" value="DODAJ" />
+    <button class="addButton" type="submit">
+      <span class="glyphicon glyphicon-plus"></span>
+      DODAJ
+    </button>
   </form>
 </div>
 
@@ -92,12 +99,19 @@
       <input id="form02" type="text" name="nameEdit" placeholder="imię" readonly="true" required />
       <input id="form03" type="text" name="weightEdit" placeholder="waga" readonly="true" required />
       <input id="form04" type="text" name="heightEdit" placeholder="wzrost" readonly="true" required />
-      <input id="update" class="updateButton" type="submit" value="ZAPISZ" disabled />
+      <button id="update"
+              class="updateButton"
+              type="submit"
+              disabled>
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+        ZAPISZ
+      </button>
       <button id="cancel"
               class="cancelButton"
               type="button"
               onClick="disableUpdateForm()"
               disabled>
+        <span class="glyphicon glyphicon-remove"></span>
         ANULUJ
       </button>
     </form>
