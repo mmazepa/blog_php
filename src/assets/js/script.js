@@ -1,22 +1,22 @@
 /* jshint esversion: 6 */
 
-var animalLength;
+var userLength;
 
-const enableUpdateForm = (id, species, name, weight, height) => {
+const enableUpdateForm = (id, email, password, role) => {
     document.getElementById("updateDiv").hidden = false;
 
-    const animal = [id, species, name, weight, height];
-    animalLength = animal.length;
+    const user = [id, email, password, role];
+    userLength = user.length;
     var i;
 
-    for (i = 1; i < animalLength; i++) {
+    for (i = 1; i < userLength; i++) {
         document.getElementById("form0" + i).readOnly = false;
     }
     document.getElementById("update").disabled = false;
     document.getElementById("cancel").disabled = false;
 
-    for (i = 0; i < animalLength; i++) {
-        document.getElementById("form0" + i).value = animal[i];
+    for (i = 0; i < userLength; i++) {
+        document.getElementById("form0" + i).value = user[i];
     }
 };
 
@@ -24,13 +24,13 @@ const disableUpdateForm = () => {
     document.getElementById("updateDiv").hidden = true;
     var i;
 
-    for (i = 1; i < animalLength; i++) {
+    for (i = 1; i < userLength; i++) {
         document.getElementById("form0" + i).readOnly = true;
     }
     document.getElementById("update").disabled = true;
     document.getElementById("cancel").disabled = true;
 
-    for (i = 0; i < animalLength; i++) {
+    for (i = 0; i < userLength; i++) {
         document.getElementById("form0" + i).value = null;
     }
 };

@@ -1,18 +1,17 @@
 <?php
-  $data = $conn->query("SELECT id, species, name, weight, height FROM animals")->fetchAll();
+  $data = $conn->query("SELECT id, email, password, role FROM users")->fetchAll();
   if ($data) {
     $i=1;
     foreach ($data as $row) {
       echo "<tr>";
       echo "<td>" . $i++ . "</td>";
-      echo "<td>" . $row["species"] . "</td>";
-      echo "<td>" . $row["name"] . "</td>";
-      echo "<td>" . $row["weight"] . "</td>";
-      echo "<td>" . $row["height"] . "</td>";
+      echo "<td>" . $row["email"] . "</td>";
+      echo "<td>" . $row["password"] . "</td>";
+      echo "<td>" . $row["role"] . "</td>";
       echo "<td>"
 ?>
       <button class="updateButton"
-              onClick="enableUpdateForm(<?php echo "'" . $row["id"] . "','". $row["species"] . "','" . $row["name"] . "','" . $row["weight"] . "','" . $row["height"] . "'"; ?>)">
+              onClick="enableUpdateForm(<?php echo "'" . $row["id"] . "','". $row["email"] . "','" . $row["password"] . "','" . $row["role"] . "'"; ?>)">
         <span class="glyphicon glyphicon-pencil"></span>
       </button>
 <?php
@@ -31,6 +30,6 @@
       echo "</tr>";
     }
   } else {
-    echo "<tr><td colspan=\"6\">Nie ma żadnych zwierząt w bazie.</td></tr>";
+    echo "<tr><td colspan=\"6\">Nie ma żadnych użytkowników w bazie.</td></tr>";
   }
 ?>

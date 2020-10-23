@@ -1,10 +1,10 @@
 # simple_PHP_CRUD
 
-Prosty CRUD napisany w języku **PHP**.
+Niniejszy projekt to **blog** napisany w języku **PHP**.
 Styl wspierają pliki **Less** oraz **Bootstrap**.
 Drobne wsparcie skryptowe - **JavaScript**.
 
-Baza danych: **MySQL** + **PDO**.
+Baza danych: **MySQL** + **PDO** (kompletny **CRUD**).
 
 Przykładowy sposób uruchomienia:
 * komenda `php -S localhost:8080` w folderze projektu

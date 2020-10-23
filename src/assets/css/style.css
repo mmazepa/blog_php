@@ -28,64 +28,64 @@ html body .databaseConnectionInfo .databaseConnectionMessage {
   color: #ff3814;
   margin-top: 0px;
 }
-html body .animals {
+html body .users {
   padding: 10px;
   text-align: center;
 }
-html body .animals table {
+html body .users table {
   margin-left: auto;
   margin-right: auto;
   width: 90%;
   border-collapse: collapse;
 }
-html body .animals table thead tr th,
-html body .animals table tbody tr th,
-html body .animals table thead tr td,
-html body .animals table tbody tr td {
+html body .users table thead tr th,
+html body .users table tbody tr th,
+html body .users table thead tr td,
+html body .users table tbody tr td {
   padding: 5px;
 }
-html body .animals table thead tr th {
+html body .users table thead tr th {
   text-align: center;
 }
-html body .animals table thead tr:first-child {
+html body .users table thead tr:first-child {
   background-color: darkgreen;
   color: whitesmoke;
 }
-html body .animals table tbody tr {
+html body .users table tbody tr {
   background-color: lightgreen;
 }
-html body .animals table tbody tr:hover {
+html body .users table tbody tr:hover {
   background-color: green !important;
   color: whitesmoke;
 }
-html body .animals table tbody tr:nth-child(2n+1) {
+html body .users table tbody tr:nth-child(2n+1) {
   background-color: #4ee44e;
 }
-html body .animals table tbody tr td .deleteButton {
+html body .users table tbody tr td .deleteButton {
   background-color: #cc0000;
   color: whitesmoke;
   font-weight: bold;
   font-size: 16px;
   border: none;
 }
-html body .animals table tbody tr td .deleteButton:hover {
+html body .users table tbody tr td .deleteButton:hover {
   background-color: #800000;
 }
-html body .animals table tbody tr td .deleteButton:active {
+html body .users table tbody tr td .deleteButton:active {
   background-color: whitesmoke;
   color: #800000;
 }
-html body .animals table tbody tr td .updateButton {
+html body .users table tbody tr td .updateButton {
   background-color: #0000cc;
   color: whitesmoke;
   font-weight: bold;
   font-size: 16px;
   border: none;
 }
-html body .animals table tbody tr td .updateButton:hover {
+html body .users table tbody tr td .updateButton:hover {
   background-color: #000080;
 }
-html body .animals table tbody tr td .updateButton:active {
+html body .users table tbody tr td .updateButton:active {
   background-color: whitesmoke;
   color: #000080;
 }

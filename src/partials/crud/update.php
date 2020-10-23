@@ -1,17 +1,15 @@
 <?php
   if(isset($_POST["idToEdit"])) {
-    $sql = "UPDATE animals
-            SET species = :species,
-                name = :name,
-                weight = :weight,
-                height = :height
-            WHERE id = :animal_id";
+    $sql = "UPDATE users
+            SET email = :email,
+                password = :password,
+                role = :role
+            WHERE id = :user_id";
     $conn->prepare($sql)->execute([
-      ":species" => $_POST["speciesEdit"],
-      ":name" => $_POST["nameEdit"],
-      ":weight" => $_POST["weightEdit"],
-      ":height" => $_POST["heightEdit"],
-      ":animal_id" => $_POST["idToEdit"]
+      ":email" => $_POST["emailEdit"],
+      ":password" => $_POST["passwordEdit"],
+      ":role" => $_POST["roleEdit"],
+      ":user_id" => $_POST["idToEdit"]
     ]);
     $_POST = array();
     header("Location: index.php", true, 303);

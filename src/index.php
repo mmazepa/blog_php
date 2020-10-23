@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"></meta>
-  <title>Zwierzęcy CRUD w PHP</title>
+  <title>Blog w PHP</title>
   <link type="text/css" href="assets/css/style.css" rel="stylesheet"></link>
   <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon"/>
   <script src="assets/js/script.js"></script>
@@ -36,14 +36,13 @@
       }
       echo " ";
 
-      $table = "animals";
+      $table = "users";
       try {
          $sql = "CREATE table IF NOT EXISTS $table(
            ID INT AUTO_INCREMENT PRIMARY KEY,
-           species VARCHAR(50) NOT NULL,
-           name VARCHAR(50) NOT NULL,
-           weight DECIMAL(5,2) NOT NULL,
-           height DECIMAL(5,2) NOT NULL);";
+           email VARCHAR(50) NOT NULL,
+           password VARCHAR(50) NOT NULL,
+           role VARCHAR(10) NOT NULL);";
          $conn->exec($sql);
          echo "Created $table Table.\n";
       } catch(PDOException $e) {
@@ -53,17 +52,16 @@
   </p>
 </div>
 
-<?php require "partials/Animal.php"; ?>
+<?php require "model/User.php"; ?>
 
-<div class="animals container">
+<div class="users container">
 <table>
   <thead>
     <tr>
       <th>L.P.</th>
-      <th>Gatunek</th>
-      <th>Imię</th>
-      <th>Waga [kg]</th>
-      <th>Wzrost [cm]</th>
+      <th>E-mail</th>
+      <th>Hasło</th>
+      <th>Rola</th>
       <th>Edytuj</th>
       <th>Usuń</th>
     </tr>
@@ -76,10 +74,9 @@
 
 <div class="form container">
   <form method="POST" action="index.php">
-    <input type="text" name="species" placeholder="gatunek" required />
-    <input type="text" name="name" placeholder="imię" required />
-    <input type="text" name="weight" placeholder="waga" required />
-    <input type="text" name="height" placeholder="wzrost" required />
+    <input type="email" name="email" placeholder="e-mail" required />
+    <input type="password" name="password" placeholder="hasło" required />
+    <input type="text" name="role" placeholder="rola" required />
     <button class="addButton" type="submit">
       <span class="glyphicon glyphicon-plus"></span>
       DODAJ
@@ -95,10 +92,9 @@
   <div class="form">
     <form method="POST" action="index.php">
       <input id="form00" type="text" name="idToEdit" placeholder="id" readonly="true" hidden required />
-      <input id="form01" type="text" name="speciesEdit" placeholder="gatunek" readonly="true" required />
-      <input id="form02" type="text" name="nameEdit" placeholder="imię" readonly="true" required />
-      <input id="form03" type="text" name="weightEdit" placeholder="waga" readonly="true" required />
-      <input id="form04" type="text" name="heightEdit" placeholder="wzrost" readonly="true" required />
+      <input id="form01" type="email" name="emailEdit" placeholder="e-mail" readonly="true" required />
+      <input id="form02" type="password" name="passwordEdit" placeholder="hasło" readonly="true" required />
+      <input id="form03" type="text" name="roleEdit" placeholder="rola" readonly="true" required />
       <button id="update"
               class="updateButton"
               type="submit"

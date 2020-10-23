@@ -1,19 +1,17 @@
 <?php
-  $newAnimal = new Animal();
-  if (isset($_POST["species"])) { $newAnimal->set_species($_POST["species"]); }
-  if (isset($_POST["name"])) { $newAnimal->set_name($_POST["name"]); }
-  if (isset($_POST["weight"])) { $newAnimal->set_weight($_POST["weight"]); }
-  if (isset($_POST["height"])) { $newAnimal->set_height($_POST["height"]); }
+  $newUser = new User();
+  if (isset($_POST["email"])) { $newUser->set_email($_POST["email"]); }
+  if (isset($_POST["password"])) { $newUser->set_password($_POST["password"]); }
+  if (isset($_POST["role"])) { $newUser->set_role($_POST["role"]); }
 
-  if ($newAnimal != null && $newAnimal != new Animal()) {
-    $sql = "INSERT INTO animals (species, name, weight, height) VALUES (?,?,?,?)";
+  if ($newUser != null && $newUser != new User()) {
+    $sql = "INSERT INTO users (email, password, role) VALUES (?,?,?)";
     $conn->prepare($sql)->execute([
-      $newAnimal->get_species(),
-      $newAnimal->get_name(),
-      $newAnimal->get_weight(),
-      $newAnimal->get_height()
+      $newUser->get_email(),
+      $newUser->get_password(),
+      $newUser->get_role()
     ]);
-    $newAnimal = null;
+    $newUser = null;
     $_POST = array();
     header("Location: index.php", true, 303);
     exit();
