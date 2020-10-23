@@ -34,3 +34,16 @@ const disableUpdateForm = () => {
         document.getElementById("form0" + i).value = null;
     }
 };
+
+const hidePassword = () => {
+    var passwords = document.getElementsByClassName("password");
+    for (var pass = 0; pass < passwords.length; pass++) {
+        // alert(passwords[pass].innerHTML);
+        var hiddenPassword = "";
+        for (var i = 0; i < passwords[pass].innerHTML.length; i++) {
+            hiddenPassword += "*";
+        }
+        passwords[pass].innerHTML = hiddenPassword;
+    }
+};
+hidePassword();

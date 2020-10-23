@@ -21,10 +21,12 @@
   $table = "users";
   try {
      $sql = "CREATE table IF NOT EXISTS $table(
-       ID INT AUTO_INCREMENT PRIMARY KEY,
-       email VARCHAR(50) NOT NULL,
+       ID INT(11) AUTO_INCREMENT PRIMARY KEY,
+       email VARCHAR(50) UNIQUE NOT NULL,
        password VARCHAR(50) NOT NULL,
-       role VARCHAR(10) NOT NULL);";
+       role VARCHAR(10) DEFAULT NULL,
+       created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+       updated_at TIMESTAMP NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP);";
      $conn->exec($sql);
      // echo "Created $table Table.\n";
   } catch(PDOException $e) {

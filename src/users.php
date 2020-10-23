@@ -19,6 +19,8 @@
         <th>E-mail</th>
         <th>Hasło</th>
         <th>Rola</th>
+        <th>Data rejestracji</th>
+        <th>Data modyfikacji</th>
         <th>Edytuj</th>
         <th>Usuń</th>
       </tr>

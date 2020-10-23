@@ -1,13 +1,15 @@
 <?php
-  $data = $conn->query("SELECT id, email, password, role FROM users")->fetchAll();
+  $data = $conn->query("SELECT id, email, password, role, created_at, updated_at FROM users")->fetchAll();
   if ($data) {
     $i=1;
     foreach ($data as $row) {
       echo "<tr>";
       echo "<td>" . $i++ . "</td>";
       echo "<td>" . $row["email"] . "</td>";
-      echo "<td>" . $row["password"] . "</td>";
+      echo "<td class=\"password\">" . $row["password"] . "</td>";
       echo "<td>" . $row["role"] . "</td>";
+      echo "<td>" . $row["created_at"] . "</td>";
+      echo "<td>" . $row["updated_at"] . "</td>";
       echo "<td>"
 ?>
       <button class="updateButton"
@@ -30,6 +32,6 @@
       echo "</tr>";
     }
   } else {
-    echo "<tr><td colspan=\"6\">Nie ma żadnych użytkowników w bazie.</td></tr>";
+    echo "<tr><td colspan=\"8\">Nie ma żadnych użytkowników w bazie.</td></tr>";
   }
 ?>
