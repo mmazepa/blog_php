@@ -2,39 +2,142 @@
   margin-left: auto;
   margin-right: auto;
 }
+* {
+  margin: 0px;
+  padding: 0px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #444;
+  font-family: 'Averia Serif Libre', cursive;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol {
+  margin-left: 40px;
+}
 html {
-  background: linear-gradient(90deg, silver, whitesmoke, silver);
+  box-sizing: border-box;
+  height: 100%;
 }
 html body {
-  margin-left: auto;
-  margin-right: auto;
-  background: linear-gradient(90deg, darkgreen, lightgreen, darkgreen);
-  box-shadow: 5px 5px 10px #003100;
-  margin-top: 2.5vh;
-  width: 90%;
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
 }
-html body .databaseConnectionInfo {
-  color: #72bcd4;
+html body .navbar {
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #3E606F;
+  border-radius: 0px 0px 6px 6px;
+}
+html body .navbar ul {
+  list-style-type: none;
+  float: right;
+}
+html body .navbar ul li {
+  float: left;
+  font-family: 'Noto Serif', serif;
+}
+html body .navbar ul li a {
+  display: block;
+  color: white;
   text-align: center;
-  padding: 10px;
+  padding: 20px 28px;
+  text-decoration: none;
 }
-html body .databaseConnectionInfo .databaseConnectionLabel {
-  background-color: darkgreen;
-  font-weight: bold;
-  margin-bottom: 0px;
+html body .navbar ul li a:hover {
+  color: #B9E6F2;
+  background-color: #334F5C;
 }
-html body .databaseConnectionInfo .databaseConnectionMessage {
-  background-color: darkgreen;
-  color: #ff3814;
-  margin-top: 0px;
+html body .navbar .logo_div {
+  float: left;
+  padding-top: 5px;
+  padding-left: 40px;
 }
-html body .users {
-  padding: 10px;
-  text-align: center;
+html body .navbar .logo_div h1 {
+  color: #B9E6F2;
+  font-size: 3em;
+  letter-spacing: 5px;
+  font-weight: 100;
+  font-family: 'Tangerine', cursive;
+}
+html body .banner {
+  margin: 5px auto;
+  min-height: 400px;
+  color: white;
+  border-radius: 5px;
+  background-image: url("../images/banner.jpg");
+  background-size: 100% auto;
+  background-position: center;
+}
+html body .banner .welcome_msg {
+  width: 45%;
+  float: left;
+  padding: 20px;
+}
+html body .banner .welcome_msg h1 {
+  color: #B9E6F2;
+  margin: 25px 0px;
+  font-size: 2.4em;
+  font-family: 'Averia Serif Libre', cursive;
+}
+html body .banner .welcome_msg p {
+  color: white;
+  font-size: 1.5em;
+  line-height: 1.8em;
+  font-family: 'Noto Serif', serif;
+}
+html body .banner .welcome_msg p span {
+  font-size: .81em;
+  color: #3E606F;
+}
+html body .banner .welcome_msg a {
+  width: 30%;
+  margin: 20px 0px;
+  padding: 12px 15px;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+html body .banner .welcome_msg a:hover {
+  background: #374447;
+}
+html body .banner .login_div {
+  width: 50%;
+  float: left;
+}
+html body .banner .login_div form {
+  margin-top: 40px;
+}
+html body .banner .login_div form h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-family: 'Noto Serif', serif;
+}
+html body .banner .login_div form input {
+  width: 60%;
+  color: white;
+  border: 1px solid white;
+  margin: 10px auto;
+  letter-spacing: 1.3px;
+  font-family: 'Noto Serif', serif;
+}
+html body .banner .login_div form button {
+  display: block;
+  background: #006384;
+  margin-left: 20%;
 }
 html body .users table {
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
   width: 90%;
   border-collapse: collapse;
 }
@@ -89,15 +192,33 @@ html body .users table tbody tr td .updateButton:active {
   background-color: whitesmoke;
   color: #000080;
 }
+html body form h2 {
+  margin: 25px auto;
+  text-align: center;
+  font-family: 'Averia Serif Libre', cursive;
+}
+html body form input {
+  width: 100%;
+  display: block;
+  padding: 13px 13px;
+  font-size: 1em;
+  margin: 5px auto 10px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid #3E606F;
+}
+html body form input:focus {
+  outline: none;
+}
 html body .form {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   padding: 10px;
 }
-html body .form input[type=text] {
-  width: 15vw !important;
-  height: 3vw !important;
+html body .form input {
+  background: whitesmoke;
 }
 html body .form button.addButton {
   background-color: #00b300;
@@ -155,4 +276,32 @@ html body .form button.cancelButton:disabled {
 }
 html body .update {
   background: linear-gradient(90deg, #003100, #64e764, #003100);
+}
+.btn {
+  color: white;
+  background: #4E6166;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  display: block;
+  letter-spacing: .1em;
+  margin: 10px 0px;
+  padding: 13px 20px;
+  text-decoration: none;
+}
+.container {
+  width: 80%;
+  margin: 0px auto;
+}
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: white;
+  background-color: #73707D;
+  text-align: center;
+  width: 80%;
+  margin: 20px auto 0px;
+  padding: 20px 0px;
 }

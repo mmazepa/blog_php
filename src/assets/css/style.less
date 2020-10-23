@@ -5,40 +5,159 @@
   margin-right: auto;
 }
 
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444;
+  font-family: 'Averia Serif Libre', cursive;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, ol {
+  margin-left: 40px;
+}
+
 html {
-  background: linear-gradient(90deg, silver, whitesmoke, silver);
+  box-sizing: border-box;
+  height: 100%;
 
   body {
-    .centerBox;
-    background: linear-gradient(90deg, darkgreen, lightgreen, darkgreen);
-    box-shadow: 5px 5px 10px darken(darkgreen, 10%);
-    margin-top: 2.5vh;
-    width: 90%;
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
 
-    .databaseConnectionInfo {
-      color: darken(lightblue, 15%);
-      text-align: center;
-      padding: 10px;
+    .navbar {
+    	margin: 0 auto;
+      overflow: hidden;
+    	background-color: #3E606F;
+      border-radius: 0px 0px 6px 6px;
 
-      .databaseConnectionLabel {
-        background-color: darkgreen;
-        font-weight: bold;
-        margin-bottom: 0px;
+      ul {
+        list-style-type: none;
+        float: right;
+
+        li {
+          float: left;
+          font-family: 'Noto Serif', serif;
+
+          a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 28px;
+            text-decoration: none;
+
+            &:hover {
+              color: #B9E6F2;
+              background-color: #334F5C;
+            }
+          }
+        }
       }
 
-      .databaseConnectionMessage {
-        background-color: darkgreen;
-        color: darken(tomato, 10%);
-        margin-top: 0px;
+      .logo_div {
+        float: left;
+        padding-top: 5px;
+        padding-left: 40px;
+
+        h1 {
+          color: #B9E6F2;
+          font-size: 3em;
+          letter-spacing: 5px;
+          font-weight: 100;
+          font-family: 'Tangerine', cursive;
+        }
+      }
+    }
+
+    .banner {
+    	margin: 5px auto;
+    	min-height: 400px;
+    	color: white;
+    	border-radius: 5px;
+    	background-image: url("../images/banner.jpg");
+    	background-size: 100% auto;
+      background-position: center;
+
+      .welcome_msg {
+        width: 45%;
+        float: left;
+        padding: 20px;
+
+        h1 {
+          color: #B9E6F2;
+          margin: 25px 0px;
+          font-size: 2.4em;
+          font-family: 'Averia Serif Libre', cursive;
+        }
+
+        p {
+          color: white;
+          font-size: 1.5em;
+          line-height: 1.8em;
+          font-family: 'Noto Serif', serif;
+
+          span {
+            font-size: .81em;
+            color: #3E606F;
+          }
+        }
+
+        a {
+          width: 30%;
+          margin: 20px 0px;
+          padding: 12px 15px;
+          font-size: 1.2em;
+          text-decoration: none;
+
+          &:hover {
+            background: #374447;
+          }
+        }
+      }
+
+      .login_div {
+        width: 50%;
+        float: left;
+
+        form {
+          margin-top: 40px;
+
+          h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-family: 'Noto Serif', serif;
+          }
+
+          input {
+            width: 60%;
+            color: white;
+            border: 1px solid white;
+            margin: 10px auto;
+            letter-spacing: 1.3px;
+            font-family: 'Noto Serif', serif;
+          }
+
+          button {
+            display: block;
+            background: #006384;
+            margin-left: 20%;
+          }
+        }
       }
     }
 
     .users {
-      padding: 10px;
-      text-align: center;
-
       table {
         .centerBox;
+        text-align: center;
         width: 90%;
         border-collapse: collapse;
 
@@ -116,14 +235,35 @@ html {
       }
     }
 
+    form {
+      h2 {
+        margin: 25px auto;
+        text-align: center;
+        font-family: 'Averia Serif Libre', cursive;
+      }
+      input {
+        width: 100%;
+        display: block;
+        padding: 13px 13px;
+        font-size: 1em;
+        margin: 5px auto 10px;
+        border-radius: 3px;
+        box-sizing : border-box;
+        background: transparent;
+        border: 1px solid #3E606F;
+      }
+      input:focus {
+        outline: none;
+      }
+    }
+
     .form {
       .centerBox;
       text-align: center;
       padding: 10px;
 
-      input[type=text] {
-        width: 15vw !important;
-        height: 3vw !important;
+      input {
+        background: whitesmoke;
       }
 
       button {
@@ -198,4 +338,35 @@ html {
       background: linear-gradient(90deg, darken(darkgreen, 10%), darken(lightgreen, 10%), darken(darkgreen, 10%));
     }
   }
+}
+
+.btn {
+	color: white;
+	background: #4E6166;
+	text-align: center;
+	border: none;
+	border-radius: 5px;
+	display: block;
+	letter-spacing: .1em;
+	margin: 10px 0px;
+	padding: 13px 20px;
+	text-decoration: none;
+}
+
+.container {
+	width: 80%;
+	margin: 0px auto;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: white;
+  background-color: #73707D;
+  text-align: center;
+  width: 80%;
+  margin: 20px auto 0px;
+  padding: 20px 0px;
 }

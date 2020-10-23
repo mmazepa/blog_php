@@ -3,7 +3,7 @@
     $sql = "DELETE FROM users WHERE id = :user_id";
     $conn->prepare($sql)->execute([":user_id" => $_POST["idToDelete"]]);
     $_POST = array();
-    header("Location: index.php", true, 303);
+    header("Location: users.php", true, 303);
     exit();
   }
 ?>

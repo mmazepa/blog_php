@@ -12,7 +12,7 @@
       ":user_id" => $_POST["idToEdit"]
     ]);
     $_POST = array();
-    header("Location: index.php", true, 303);
+    header("Location: users.php", true, 303);
     exit();
   }
 ?>

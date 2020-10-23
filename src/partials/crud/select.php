@@ -18,7 +18,7 @@
       echo "</td>";
       echo "<td>"
 ?>
-      <form method="POST" action="index.php">
+      <form method="POST" action="users.php">
         <input type="text" name="idToDelete" value="<?php echo $row["id"] ?>" hidden readonly />
         <button type="submit"
                 class="deleteButton">
