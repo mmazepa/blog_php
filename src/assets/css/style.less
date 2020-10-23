@@ -196,6 +196,11 @@ html {
             }
 
             td {
+              [class$="Button"] {
+                width: 30px;
+                height: 30px;
+              }
+
               .deleteButton {
                 background-color: darken(red, 10%);
                 color: whitesmoke;
@@ -241,7 +246,8 @@ html {
         text-align: center;
         font-family: 'Averia Serif Libre', cursive;
       }
-      input {
+
+      input, select {
         width: 100%;
         display: block;
         padding: 13px 13px;
@@ -252,6 +258,7 @@ html {
         background: transparent;
         border: 1px solid #3E606F;
       }
+
       input:focus {
         outline: none;
       }
@@ -262,7 +269,7 @@ html {
       text-align: center;
       padding: 10px;
 
-      input {
+      input, select {
         background: whitesmoke;
       }
 
@@ -335,7 +342,10 @@ html {
     }
 
     .update {
-      background: linear-gradient(90deg, darken(darkgreen, 10%), darken(lightgreen, 10%), darken(darkgreen, 10%));
+      background: linear-gradient(90deg, silver, white, silver);
+      border: 1px solid gray;
+      border-radius: 10px;
+      width: 100%;
     }
   }
 }

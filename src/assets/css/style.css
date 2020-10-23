@@ -164,6 +164,10 @@ html body .users table tbody tr:hover {
 html body .users table tbody tr:nth-child(2n+1) {
   background-color: #4ee44e;
 }
+html body .users table tbody tr td [class$="Button"] {
+  width: 30px;
+  height: 30px;
+}
 html body .users table tbody tr td .deleteButton {
   background-color: #cc0000;
   color: whitesmoke;
@@ -197,7 +201,8 @@ html body form h2 {
   text-align: center;
   font-family: 'Averia Serif Libre', cursive;
 }
-html body form input {
+html body form input,
+html body form select {
   width: 100%;
   display: block;
   padding: 13px 13px;
@@ -217,7 +222,8 @@ html body .form {
   text-align: center;
   padding: 10px;
 }
-html body .form input {
+html body .form input,
+html body .form select {
   background: whitesmoke;
 }
 html body .form button.addButton {
@@ -275,7 +281,10 @@ html body .form button.cancelButton:disabled {
   cursor: not-allowed;
 }
 html body .update {
-  background: linear-gradient(90deg, #003100, #64e764, #003100);
+  background: linear-gradient(90deg, silver, white, silver);
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 100%;
 }
 .btn {
   color: white;

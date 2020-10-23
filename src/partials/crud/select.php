@@ -13,7 +13,10 @@
       echo "<td>"
 ?>
       <button class="updateButton"
-              onClick="enableUpdateForm(<?php echo "'" . $row["id"] . "','". $row["email"] . "','" . $row["password"] . "','" . $row["role"] . "'"; ?>)">
+              onClick="enableUpdateForm(<?php echo "'" . $row["id"] . "','". $row["email"] . "','" . $row["password"] . "','" . $row["role"] . "'"; ?>)"
+              type="button"
+              data-toggle="modal"
+              data-target="#myModal">
         <span class="glyphicon glyphicon-pencil"></span>
       </button>
 <?php

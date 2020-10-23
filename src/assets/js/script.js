@@ -18,6 +18,8 @@ const enableUpdateForm = (id, email, password, role) => {
     for (i = 0; i < userLength; i++) {
         document.getElementById("form0" + i).value = user[i];
     }
+
+    changeModalTitle(email);
 };
 
 const disableUpdateForm = () => {
@@ -38,7 +40,6 @@ const disableUpdateForm = () => {
 const hidePassword = () => {
     var passwords = document.getElementsByClassName("password");
     for (var pass = 0; pass < passwords.length; pass++) {
-        // alert(passwords[pass].innerHTML);
         var hiddenPassword = "";
         for (var i = 0; i < passwords[pass].innerHTML.length; i++) {
             hiddenPassword += "*";
@@ -47,3 +48,9 @@ const hidePassword = () => {
     }
 };
 hidePassword();
+
+const changeModalTitle = (email) => {
+    var modal = document.getElementsByClassName("modal-title")[0];
+    modal.innerHTML = modal.innerHTML.split(" ")[0];
+    modal.innerHTML += " użytkownika <b>" + email.split("@")[0] + "</b>";
+};
