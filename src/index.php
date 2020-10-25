@@ -7,7 +7,7 @@
 <?php require(ROOT_PATH . "/partials/navbar.php"); ?>
 <?php require(ROOT_PATH . "/partials/banner.php"); ?>
 
-<div class="content">
+<div class="content container">
   <h2 class="content-title">Recent Articles</h2>
   <hr>
   <!-- more content still to come here ... -->

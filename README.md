@@ -18,9 +18,9 @@ być wypełniony według następującego schematu:
 
 ```php
 <?php
-  $servername = "nazwa_serwera";
-  $dbname = "nazwa_twojej_bazy";
-  $username = "nazwa_uzytkownika";
-  $password = "haslo_uzytkownika";
+  $db_servername = "nazwa_serwera";
+  $db_name = "nazwa_twojej_bazy";
+  $db_username = "nazwa_uzytkownika";
+  $db_password = "haslo_uzytkownika";
 ?>
 ```
