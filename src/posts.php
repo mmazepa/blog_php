@@ -1,24 +1,25 @@
 <?php require_once("config.php"); ?>
 <?php require_once(ROOT_PATH . "/partials/head_section.php"); ?>
-  <title>Blog w PHP | Users</title>
+  <title>Blog w PHP | Posts</title>
 </head>
 <body>
 
 <?php require(ROOT_PATH . "/partials/navbar.php"); ?>
 
 <div class="content container">
-  <h2 class="content-title">Użytkownicy</h2>
+  <h2 class="content-title">Posty</h2>
   <hr>
-  <?php require(ROOT_PATH . "/model/User.php"); ?>
+  <?php require(ROOT_PATH . "/model/Post.php"); ?>
 
-  <div class="users container">
+  <div class="posts container">
   <table>
     <thead>
       <tr>
         <th>L.P.</th>
-        <th>E-mail</th>
-        <th>Hasło</th>
-        <th>Rola</th>
+        <th>Tytuł</th>
+        <th>Wyświetlenia</th>
+        <th>Treść</th>
+        <th>Opublikowano</th>
         <th>Data rejestracji</th>
         <th>Data modyfikacji</th>
         <th>Edytuj</th>
@@ -26,19 +27,15 @@
       </tr>
     </thead>
     <tbody>
-      <?php require(ROOT_PATH . "/partials/user/crud/select.php"); ?>
+      <?php require(ROOT_PATH . "/partials/post/crud/select.php"); ?>
     </tbody>
   </table>
   </div>
 
   <div class="form container">
-    <form method="POST" action="users.php">
-      <input type="email" name="email" placeholder="e-mail" required />
-      <input type="password" name="password" placeholder="hasło" required />
-      <select name="role">
-        <option>admin</option>
-        <option>user</option>
-      </select>
+    <form method="POST" action="posts.php">
+      <input type="text" name="title" placeholder="tytuł" required />
+      <textarea type="text" name="body" placeholder="treść" required></textarea>
       <button class="addButton" type="submit">
         <span class="glyphicon glyphicon-plus"></span>
         DODAJ
@@ -46,9 +43,9 @@
     </form>
   </div>
 
-  <?php require(ROOT_PATH . "/partials/user/crud/insert.php"); ?>
-  <?php require(ROOT_PATH . "/partials/user/crud/update.php"); ?>
-  <?php require(ROOT_PATH . "/partials/user/crud/delete.php"); ?>
+  <?php require(ROOT_PATH . "/partials/post/crud/insert.php"); ?>
+  <?php require(ROOT_PATH . "/partials/post/crud/update.php"); ?>
+  <?php require(ROOT_PATH . "/partials/post/crud/delete.php"); ?>
 
 <div class="container">
 	<div class="modal fade" id="myModal" role="dialog">
@@ -61,14 +58,10 @@
 				<div class="modal-body">
           <div id="updateDiv" class="update container" hidden>
             <div class="form">
-              <form method="POST" action="users.php">
+              <form method="POST" action="posts.php">
                 <input id="form00" type="text" name="idToEdit" placeholder="id" readonly="true" hidden required />
-                <input id="form01" type="email" name="emailEdit" placeholder="e-mail" readonly="true" required />
-                <input id="form02" type="password" name="passwordEdit" placeholder="hasło" readonly="true" required />
-                <select id="form03" name="roleEdit" readonly="true">
-                  <option>admin</option>
-                  <option>user</option>
-                </select>
+                <input id="form01" type="text" name="titleEdit" placeholder="tytuł" readonly="true" required />
+                <textarea id="form02" type="text" name="bodyEdit" placeholder="treść" readonly="true" required></textarea>
                 <button id="update"
                         class="updateButton"
                         type="submit"

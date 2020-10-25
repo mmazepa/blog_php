@@ -23,6 +23,92 @@ ul, ol {
   margin-left: 40px;
 }
 
+.table(@color1, @color2, @color3) {
+  table {
+    .centerBox;
+    text-align: center;
+    width: 90%;
+    border-collapse: collapse;
+
+    thead, tbody {
+      tr {
+        th, td {
+          padding: 5px;
+        }
+      }
+    }
+
+    thead {
+      tr {
+        th {
+          text-align: center;
+        }
+
+        &:first-child {
+          background-color: @color1;
+          color: whitesmoke;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        background-color: @color3;
+
+        &:hover {
+          background-color: @color2 !important;
+          color: whitesmoke;
+        }
+
+        &:nth-child(2n+1) {
+          background-color: darken(@color3, 15%);
+        }
+
+        td {
+          [class$="Button"] {
+            width: 30px;
+            height: 30px;
+          }
+
+          .deleteButton {
+            background-color: darken(red, 10%);
+            color: whitesmoke;
+            font-weight: bold;
+            font-size: 16px;
+            border: none;
+
+            &:hover {
+              background-color: darken(red, 25%);
+            }
+
+            &:active {
+              background-color: whitesmoke;
+              color: darken(red, 25%);
+            }
+          }
+
+          .updateButton {
+            background-color: darken(blue, 10%);
+            color: whitesmoke;
+            font-weight: bold;
+            font-size: 16px;
+            border: none;
+
+            &:hover {
+              background-color: darken(blue, 25%);
+            }
+
+            &:active {
+              background-color: whitesmoke;
+              color: darken(blue, 25%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 html {
   box-sizing: border-box;
   height: 100%;
@@ -155,89 +241,11 @@ html {
     }
 
     .users {
-      table {
-        .centerBox;
-        text-align: center;
-        width: 90%;
-        border-collapse: collapse;
+      .table(darkgreen, green, lightgreen);
+    }
 
-        thead, tbody {
-          tr {
-            th, td {
-              padding: 5px;
-            }
-          }
-        }
-
-        thead {
-          tr {
-            th {
-              text-align: center;
-            }
-
-            &:first-child {
-              background-color: darkgreen;
-              color: whitesmoke;
-            }
-          }
-        }
-
-        tbody {
-          tr {
-            background-color: lightgreen;
-
-            &:hover {
-              background-color: green !important;
-              color: whitesmoke;
-            }
-
-            &:nth-child(2n+1) {
-              background-color: darken(lightgreen, 15%);
-            }
-
-            td {
-              [class$="Button"] {
-                width: 30px;
-                height: 30px;
-              }
-
-              .deleteButton {
-                background-color: darken(red, 10%);
-                color: whitesmoke;
-                font-weight: bold;
-                font-size: 16px;
-                border: none;
-
-                &:hover {
-                  background-color: darken(red, 25%);
-                }
-
-                &:active {
-                  background-color: whitesmoke;
-                  color: darken(red, 25%);
-                }
-              }
-
-              .updateButton {
-                background-color: darken(blue, 10%);
-                color: whitesmoke;
-                font-weight: bold;
-                font-size: 16px;
-                border: none;
-
-                &:hover {
-                  background-color: darken(blue, 25%);
-                }
-
-                &:active {
-                  background-color: whitesmoke;
-                  color: darken(blue, 25%);
-                }
-              }
-            }
-          }
-        }
-      }
+    .posts {
+      .table(darkblue, blue, lightblue);
     }
 
     form {
@@ -247,7 +255,7 @@ html {
         font-family: 'Averia Serif Libre', cursive;
       }
 
-      input, select {
+      input, select, textarea {
         width: 100%;
         display: block;
         padding: 13px 13px;
@@ -269,7 +277,7 @@ html {
       text-align: center;
       padding: 10px;
 
-      input, select {
+      input, select, textarea {
         background: whitesmoke;
       }
 
