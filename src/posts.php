@@ -1,13 +1,13 @@
 <?php require_once("config.php"); ?>
 <?php require_once(ROOT_PATH . "/partials/head_section.php"); ?>
-  <title>Blog w PHP | Posts</title>
+  <title>Blog in PHP | Posts</title>
 </head>
 <body>
 
 <?php require(ROOT_PATH . "/partials/navbar.php"); ?>
 
 <div class="content container">
-  <h2 class="content-title">Posty</h2>
+  <h2 class="content-title">Added Posts</h2>
   <hr>
   <?php require(ROOT_PATH . "/model/Post.php"); ?>
 
@@ -15,15 +15,15 @@
   <table>
     <thead>
       <tr>
-        <th>L.P.</th>
-        <th>Tytuł</th>
-        <th>Wyświetlenia</th>
-        <th>Treść</th>
-        <th>Opublikowano</th>
-        <th>Data rejestracji</th>
-        <th>Data modyfikacji</th>
-        <th>Edytuj</th>
-        <th>Usuń</th>
+        <th>No.</th>
+        <th>Title</th>
+        <th>Views</th>
+        <th>Content</th>
+        <th>Is published?</th>
+        <th>Add date</th>
+        <th>Last modified</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -34,11 +34,11 @@
 
   <div class="form container">
     <form method="POST" action="posts.php">
-      <input type="text" name="title" placeholder="tytuł" required />
-      <textarea type="text" name="body" placeholder="treść" required></textarea>
+      <input type="text" name="title" placeholder="title" required />
+      <textarea type="text" name="body" placeholder="content" required></textarea>
       <button class="addButton" type="submit">
         <span class="glyphicon glyphicon-plus"></span>
-        DODAJ
+        ADD POST
       </button>
     </form>
   </div>
@@ -53,21 +53,21 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h3 class="modal-title">Edycja</h3>
+					<h3 class="modal-title">Edit</h3>
 				</div>
 				<div class="modal-body">
           <div id="updateDiv" class="update container" hidden>
             <div class="form">
               <form method="POST" action="posts.php">
                 <input id="form00" type="text" name="idToEdit" placeholder="id" readonly="true" hidden required />
-                <input id="form01" type="text" name="titleEdit" placeholder="tytuł" readonly="true" required />
-                <textarea id="form02" type="text" name="bodyEdit" placeholder="treść" readonly="true" required></textarea>
+                <input id="form01" type="text" name="titleEdit" placeholder="title" readonly="true" required />
+                <textarea id="form02" type="text" name="bodyEdit" placeholder="content" readonly="true" required></textarea>
                 <button id="update"
                         class="updateButton"
                         type="submit"
                         disabled>
                   <span class="glyphicon glyphicon-floppy-disk"></span>
-                  ZAPISZ
+                  SAVE
                 </button>
                 <button id="cancel"
                         class="cancelButton"
@@ -75,7 +75,7 @@
                         data-dismiss="modal"
                         disabled>
                   <span class="glyphicon glyphicon-remove"></span>
-                  ANULUJ
+                  CANCEL
                 </button>
               </form>
             </div>

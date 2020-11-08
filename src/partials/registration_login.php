@@ -7,16 +7,16 @@
 		$password_1 = $_POST["password_1"];
 		$password_2 = $_POST["password_2"];
 
-		if (empty($email)) { array_push($errors, "Brakuje adresu e-mail."); }
-		if (empty($password_1)) { array_push($errors, "Zapomniałeś o haśle."); }
-		if ($password_1 != $password_2) { array_push($errors, "Hasła nie są identyczne.");}
+		if (empty($email)) { array_push($errors, "Please type your e-mail address."); }
+		if (empty($password_1)) { array_push($errors, "Please type your password."); }
+		if ($password_1 != $password_2) { array_push($errors, "Passwords are not equal.");}
 
 		$user_check_query = "SELECT * FROM users WHERE email=\"" . $email . "\" LIMIT 1";
     $user = $conn->query($user_check_query)->fetch();
 
 		if ($user) {
 			if ($user["email"] === $email) {
-			  array_push($errors, "Podany adres e-mail już znajduje się w bazie.");
+			  array_push($errors, "This e-mail address is already in the databse.");
 			}
 		}
 
@@ -33,11 +33,11 @@
 			$_SESSION["user"] = getUserById($reg_user_id);
 
 			if (in_array($_SESSION["user"]["role"], ["admin", "author"])) {
-				$_SESSION["message"] = "Jesteś zalogowany.";
+				$_SESSION["message"] = "You are logged in.";
 				header("location: " . BASE_URL . "admin/dashboard.php");
 				exit(0);
 			} else {
-				$_SESSION["message"] = "Jesteś zalogowany.";
+				$_SESSION["message"] = "You are logged in.";
 				header("location: index.php");
 				exit(0);
 			}

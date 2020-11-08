@@ -1,6 +1,6 @@
 <?php require_once("config.php"); ?>
 <?php require_once(ROOT_PATH . "/partials/head_section.php"); ?>
-  <title>Blog w PHP | Home</title>
+  <title>Blog in PHP | Home</title>
 </head>
 <body>
 

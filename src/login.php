@@ -1,7 +1,7 @@
 <?php include("config.php"); ?>
 <?php include("partials/registration_login.php"); ?>
 <?php include("partials/head_section.php"); ?>
-	<title>Blog w PHP | Logowanie </title>
+	<title>Blog in PHP | Logowanie </title>
 </head>
 <body>
 <div class="container">

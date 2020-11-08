@@ -89,11 +89,11 @@ hidePassword();
 const changeModalTitle = (email) => {
     var modal = document.getElementsByClassName("modal-title")[0];
     modal.innerHTML = modal.innerHTML.split(" ")[0];
-    modal.innerHTML += " użytkownika <b>" + email.split("@")[0] + "</b>";
+    modal.innerHTML += " user <b>" + email.split("@")[0] + "</b>";
 };
 
 const changeModalTitle2 = (title) => {
     var modal = document.getElementsByClassName("modal-title")[0];
     modal.innerHTML = modal.innerHTML.split(" ")[0];
-    modal.innerHTML += " postu <b>\"" + title.split("@")[0] + "\"</b>";
+    modal.innerHTML += " post <b>\"" + title.split("@")[0] + "\"</b>";
 };
