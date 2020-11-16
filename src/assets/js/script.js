@@ -1,77 +1,22 @@
 /* jshint esversion: 6 */
 
-var userLength;
-var postLength;
-
-const enableUpdateForm = (id, email, password, role) => {
+const enableUpdateForm = (type, ...params) => {
     document.getElementById("updateDiv").hidden = false;
-
-    const user = [id, email, password, role];
-    userLength = user.length;
+    let object = [];
+    for (let param of params)
+        object.push(param);
+    let length = object.length;
     var i;
 
-    for (i = 1; i < userLength; i++) {
+    for (i = 1; i < length; i++)
         document.getElementById("form0" + i).readOnly = false;
-    }
     document.getElementById("update").disabled = false;
     document.getElementById("cancel").disabled = false;
 
-    for (i = 0; i < userLength; i++) {
-        document.getElementById("form0" + i).value = user[i];
-    }
+    for (i = 0; i < length; i++)
+        document.getElementById("form0" + i).value = object[i];
 
-    changeModalTitle(email);
-};
-
-const disableUpdateForm = () => {
-    document.getElementById("updateDiv").hidden = true;
-    var i;
-
-    for (i = 1; i < userLength; i++) {
-        document.getElementById("form0" + i).readOnly = true;
-    }
-    document.getElementById("update").disabled = true;
-    document.getElementById("cancel").disabled = true;
-
-    for (i = 0; i < userLength; i++) {
-        document.getElementById("form0" + i).value = null;
-    }
-};
-
-const enableUpdateForm2 = (id, title, body) => {
-    document.getElementById("updateDiv").hidden = false;
-
-    const post = [id, title, body];
-    postLength = post.length;
-    var i;
-
-    for (i = 1; i < postLength; i++) {
-        document.getElementById("form0" + i).readOnly = false;
-    }
-    document.getElementById("update").disabled = false;
-    document.getElementById("cancel").disabled = false;
-
-    for (i = 0; i < postLength; i++) {
-        // alert(post[i]);
-        document.getElementById("form0" + i).value = post[i];
-    }
-
-    changeModalTitle2(title);
-};
-
-const disableUpdateForm2 = () => {
-    document.getElementById("updateDiv").hidden = true;
-    var i;
-
-    for (i = 1; i < postLength; i++) {
-        document.getElementById("form0" + i).readOnly = true;
-    }
-    document.getElementById("update").disabled = true;
-    document.getElementById("cancel").disabled = true;
-
-    for (i = 0; i < postLength; i++) {
-        document.getElementById("form0" + i).value = null;
-    }
+    changeModalTitle(type, params[1]);
 };
 
 const hidePassword = () => {
@@ -86,14 +31,12 @@ const hidePassword = () => {
 };
 hidePassword();
 
-const changeModalTitle = (email) => {
+const changeModalTitle = (var1, var2) => {
     var modal = document.getElementsByClassName("modal-title")[0];
     modal.innerHTML = modal.innerHTML.split(" ")[0];
-    modal.innerHTML += " user <b>" + email.split("@")[0] + "</b>";
-};
-
-const changeModalTitle2 = (title) => {
-    var modal = document.getElementsByClassName("modal-title")[0];
-    modal.innerHTML = modal.innerHTML.split(" ")[0];
-    modal.innerHTML += " post <b>\"" + title.split("@")[0] + "\"</b>";
+    if (var1.localeCompare("user") == 0)
+        var2 = var2.split("@")[0];
+    else if (var1.localeCompare("post") == 0)
+        var2 = "\"" + var2 + "\"";
+    modal.innerHTML += " " + var1 + " <b>" + var2 + "</b>";
 };

@@ -14,7 +14,7 @@
       echo "<td>"
 ?>
       <button class="updateButton"
-              onClick="enableUpdateForm2(<?php echo "'" . $row["id"] . "','" . $row["title"] . "','" . $row["body"] . "'"; ?>)"
+              onClick="enableUpdateForm(<?php echo "'post', '" . $row["id"] . "','" . $row["title"] . "','" . $row["body"] . "'"; ?>)"
               type="button"
               data-toggle="modal"
               data-target="#myModal">
