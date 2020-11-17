@@ -4,7 +4,7 @@
 ![CSS](https://img.shields.io/badge/CSS-CSS3+Less-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-blue)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-3.4.0-blue)
-![PHP](https://img.shields.io/badge/PHP-7.0.33-blue)
+![PHP](https://img.shields.io/badge/PHP-7.2.24-blue)
 
 ## Table of contents
 * [General info](#general-info)
